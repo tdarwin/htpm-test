@@ -1,6 +1,4 @@
-FROM debian:bookworm-slim AS builder
-
-CMD ["/bin/bash"]
+FROM golang:bookworm
 
 RUN apt update && apt install -y wget curl systemctl make sudo
 
