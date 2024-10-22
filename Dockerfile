@@ -14,11 +14,11 @@ RUN useradd -m -u $UID -g $GID $USER
 
 RUN wget https://honeycomb-builds.s3.amazonaws.com/honeycombio/honeycomb-telemetry-pipeline/1-77-1/honeycomb-telemetry-pipeline-ee-1-77-1_linux_arm64.deb
 
-RUN apt install -y ./bindplane-ee_linux_arm64.deb
+RUN apt install -y ./honeycomb-telemetry-pipeline-ee-1-77-1_linux_arm64.deb
 
 RUN mkdir /data
 
-RUN chown -R bindplane:bindplane /data
+RUN chown -R htpm:htpm /data
 
 RUN chmod -R 777 /data
 
@@ -36,6 +36,6 @@ ENV BINDPLANE_PORT=3001
 
 EXPOSE 3001:3001
 
-USER bindplane
+USER htpm
 
 ENTRYPOINT ["/usr/local/bin/bindplane", "serve"]
